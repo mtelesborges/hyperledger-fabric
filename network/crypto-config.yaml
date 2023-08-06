@@ -1,0 +1,44 @@
+# cryptogen showtemplate
+
+# ---------------------------------------------------------------------------
+# "OrdererOrgs" - Definition of organizations managing orderer nodes
+# ---------------------------------------------------------------------------
+OrdererOrgs:
+  - Name: Orderer
+    Domain: gca.edu.br
+    EnableNodeOUs: true
+    Specs:
+      - Hostname: orderer
+        SANS: 
+          - localhost
+
+PeerOrgs:
+  - Name: Org1
+    Domain: org1.gca.edu.br
+    EnableNodeOUs: true
+    Template:
+      Count: 1 # number of nodes
+      SANS:
+        - localhost
+    Users:
+      Count: 1
+
+  - Name: Org2
+    Domain: org2.gca.edu.br
+    EnableNodeOUs: true
+    Template:
+      Count: 1 # number of nodes
+      SANS:
+        - localhost
+    Users:
+      Count: 1
+
+  - Name: Org3
+    Domain: org3.gca.edu.br
+    EnableNodeOUs: true
+    Template:
+      Count: 1 # number of nodes
+      SANS:
+        - localhost
+    Users:
+      Count: 1

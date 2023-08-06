@@ -1,0 +1,13 @@
+version: '3.9'
+
+services:
+  hyperledger-network-development:
+    container_name: hyperledger-network-development
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    tty: true
+    stdin_open: true
+    working_dir: /var/www/network
+    volumes:
+      - ./network:/var/www/network
