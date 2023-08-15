@@ -52,10 +52,20 @@ configtxgen -profile ThreeOrgsChannel -outputAnchorPeersUpdate ./channel-artifac
 - Configurar canal
 ```sh
 export CHANNEL_NAME=marketplace
-peer channel create -o orderer.gca.edu.br:7050 -c $CHANNEL_NAME -f ./channel-artifacts/channel.tx --tls true --cafile /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/ordererOrganizations/gca.edu.br/orderers/orderer.gca.edu.br/msp/tlscacerts/tlsca.gca.edu.br-cert.pem
+peer channel create -o orderer.gca.unijui.edu.br:7050 -c $CHANNEL_NAME -f ./channel-artifacts/channel.tx --tls true --cafile /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/ordererOrganizations/gca.unijui.edu.br/orderers/orderer.gca.unijui.edu.br/msp/tlscacerts/tlsca.gca.unijui.edu.br-cert.pem
 ```
 
 - Adicionar organizações ao canal
 ```sh
 peer channel join -b marketplace.block
 ```
+export GO111MODULE="on" 
+export CHAINCODE_NAME=foodcontrol
+export CHAINCODE_VERSION=1
+export CC_RUNTIME_LANGUAGE=golang
+export CC_SRC_PATH=/opt/gopath/src/github.com/chaincode/foodcontrol/
+export ORDERER_CA=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/ordererOrganizations/gca.unijui.edu.br/orderers/orderer.gca.unijui.edu.br/msp/tlscacerts/tlsca.gca.unijui.edu.br-cert.pem
+
+peer lifecycle chaincode package ${CHAINCODE_NAME}.tar.gz --path ${CC_SRC_PATH} --lang ${CC_RUNTIME_LANGUAGE} --label ${CHAINCODE_NAME}_${CHAINCODE_VERSION} >&log.txt
+
+peer lifecycle chaincode install ${CHAINCODE_NAME}.tar.gz

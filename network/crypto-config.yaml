@@ -1,44 +1,42 @@
-# cryptogen showtemplate
-
-# ---------------------------------------------------------------------------
-# "OrdererOrgs" - Definition of organizations managing orderer nodes
-# ---------------------------------------------------------------------------
+# Copyright Business Blockchain www.blockchainempresarial.com. All Rights Reserved.
+# Autor: Ricardo Ruano, ricardo@blockchainempresarial.com
+# Date: 20-08-2020
+# SPDX-License-Identifier: Apache-2.0
+#
 OrdererOrgs:
-  - Name: Orderer
-    Domain: gca.edu.br
-    EnableNodeOUs: true
-    Specs:
-      - Hostname: orderer
-        SANS: 
-          - localhost
-
+    - Name: Orderer
+      Domain: gca.unijui.edu.br
+      EnableNodeOUs: true
+      Specs:
+        - Hostname: orderer
+          SANS:
+            - localhost
 PeerOrgs:
-  - Name: Org1
-    Domain: org1.gca.edu.br
-    EnableNodeOUs: true
-    Template:
-      Count: 1 # number of nodes
-      SANS:
-        - localhost
-    Users:
-      Count: 1
-
-  - Name: Org2
-    Domain: org2.gca.edu.br
-    EnableNodeOUs: true
-    Template:
-      Count: 1 # number of nodes
-      SANS:
-        - localhost
-    Users:
-      Count: 1
-
-  - Name: Org3
-    Domain: org3.gca.edu.br
-    EnableNodeOUs: true
-    Template:
-      Count: 1 # number of nodes
-      SANS:
-        - localhost
-    Users:
-      Count: 1
+    - Name: Org1
+      Domain: org1.gca.unijui.edu.br
+      EnableNodeOUs: true
+      Template:
+        Count: 1
+        SANS:
+          - localhost
+      Users:
+        Count: 1
+    - Name: Org2
+      Domain: org2.gca.unijui.edu.br
+      EnableNodeOUs: true
+      Template:
+        Count: 1
+        SANS:
+          - localhost
+      Users:
+        Count: 1
+    - Name: Org3
+      Domain: org3.gca.unijui.edu.br
+      EnableNodeOUs: true    
+      Template:
+        Count: 1
+        SANS:
+          - localhost
+      Users:
+        Count: 1
+  
