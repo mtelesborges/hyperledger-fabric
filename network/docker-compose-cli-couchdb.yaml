@@ -128,7 +128,7 @@ services:
     # command: /bin/bash -c './scripts/script.sh ${CHANNEL_NAME}; sleep $TIMEOUT'
     command: /bin/bash
     volumes:
-        - ./var/run/:/host/var/run/
+        - /var/run/:/host/var/run/
         # ---CHANGED--- chaincode path adjusted
         - ./../chaincode/:/opt/gopath/src/github.com/chaincode
         - ./crypto-config:/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/
